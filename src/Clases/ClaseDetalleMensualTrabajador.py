@@ -1,5 +1,5 @@
 from src.Data.conexion_db import Conexion
-
+from tkinter import messagebox
 class SQLDetalleMensualTrabajador:
     def __init__(self, IDEmpleado=None, IDMes=None, detailAnio=None, detailHorasExtra=None, detailMinutosTardanzas=None, detailMinutosJustificados=None, detailDiasFalta=None, detailDiasJustificados=None, detailSueldoNeto=None):
         self.IDEmpleado = IDEmpleado
@@ -22,7 +22,7 @@ class SQLDetalleMensualTrabajador:
             self.conexion.commit()
             print('Detalle mensual del trabajador guardado correctamente')
         except Exception as e:
-            print(f'Error al guardar el detalle mensual del trabajador: {e}')
+            messagebox.showerror('Mensaje','Ya se creó un sueldo para este mes de este empleado')
         finally:
             self.CerrarConexion()
 
