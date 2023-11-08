@@ -62,8 +62,7 @@ class SQLEmpleado:
                     lista = resultado
                     lista.reverse()
                 else:
-                    mensaje = "Empleado no encontrado."
-                    return mensaje
+                    messagebox.showerror('Mensaje', "Empleado no encontrado.")
             except Exception as e:
                 print(f'Error al leer empleado: {e}')
             finally:
