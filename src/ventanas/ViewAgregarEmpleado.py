@@ -10,17 +10,17 @@ def abrir_ventana1():
     ventana1.title("Agregar Empleado")
     ventana1.geometry("800x600")
 
-    ventana1.label_nombre = tk.Label(ventana1, text='Nombre Completo: ')
-    ventana1.label_nombre.config(font=('Times New Roman', 14, 'bold'))
-    ventana1.label_nombre.grid(row=0, column=0, padx=10, pady=10)
+    label_nombre = tk.Label(ventana1, text='Nombre Completo: ')
+    label_nombre.config(font=('Times New Roman', 14, 'bold'))
+    label_nombre.grid(row=0, column=0, padx=10, pady=10)
 
-    ventana1.label_Sueldo = tk.Label(ventana1, text='Sueldo: ')
-    ventana1.label_Sueldo.config(font=('Times New Roman', 14, 'bold'))
-    ventana1.label_Sueldo.grid(row=1, column=0, padx=10, pady=10)
+    label_Sueldo = tk.Label(ventana1, text='Sueldo: ')
+    label_Sueldo.config(font=('Times New Roman', 14, 'bold'))
+    label_Sueldo.grid(row=1, column=0, padx=10, pady=10)
 
-    ventana1.label_cargo = tk.Label(ventana1, text='Cargo: ')
-    ventana1.label_cargo.config(font=('Times New Roman', 14, 'bold'))
-    ventana1.label_cargo.grid(row=2, column=0, padx=10, pady=10)
+    label_cargo = tk.Label(ventana1, text='Cargo: ')
+    label_cargo.config(font=('Times New Roman', 14, 'bold'))
+    label_cargo.grid(row=2, column=0, padx=10, pady=10)
 
     ventana1.nombre = tk.StringVar()
     ventana1.entry_nombre = tk.Entry(ventana1, textvariable=ventana1.nombre)

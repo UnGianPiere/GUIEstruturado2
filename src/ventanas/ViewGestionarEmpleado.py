@@ -28,17 +28,22 @@ def abrir_ventana2():
     ventanaGE.botonSeleccionar.config(bg='grey', fg='White')
     ventanaGE.botonSeleccionar.grid(row=3, column=1, padx=10, pady=10)
 
-    ventanaGE.botonSeleccionar2 = tk.Button(ventanaGE, text='Crer Nuevo Sueldo',command=lambda: Seleccion2(ventanaGE))
+    ventanaGE.botonSeleccionar2 = tk.Button(ventanaGE, text='Crear Nuevo Sueldo',command=lambda: Seleccion2(ventanaGE))
     ventanaGE.botonSeleccionar2.config(bg='grey', fg='White')
     ventanaGE.botonSeleccionar2.grid(row=3, column=2, padx=10, pady=10)
+
+    ventanaGE.tablaB.bind('<ButtonRelease-1>', lambda event: habilitar(ventanaGE))
+
+    deshabilitar(ventanaGE)
 
 def BuscarEmpleado(ventanaGE):
     ventanaGE.tablaB.delete(*ventanaGE.tablaB.get_children())
     nombre=ventanaGE.entry.get()
-    empleado=SQLEmpleado(None,nombre)
+    empleado=SQLEmpleado(nombre=nombre)
     ventanaGE.lista=empleado.LeerEmpleado()
     for i in ventanaGE.lista:
         ventanaGE.tablaB.insert('', 0, text=i[0], values=(i[1], i[3]))
+    deshabilitar(ventanaGE)
 
 def Seleccion1(ventanaGE):
     selected_item = ventanaGE.tablaB.selection()
@@ -123,3 +128,10 @@ def GuardarDATOSEMPLEDO (id,ventana):
         detallemesEmpleado = SQLDetalleMensualTrabajador(id, mes, anio, horas, minutos, detailDiasFalta=dias)
 
     detallemesEmpleado.AgregarDetalleMensualTrabajador()
+
+def deshabilitar(ventanaGE):
+    ventanaGE.botonSeleccionar.grid_remove()
+    ventanaGE.botonSeleccionar2.grid_remove()
+def habilitar(ventanaGE):
+    ventanaGE.botonSeleccionar.grid()
+    ventanaGE.botonSeleccionar2.grid()
