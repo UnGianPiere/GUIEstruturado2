@@ -1,5 +1,6 @@
 import tkinter as tk
-from ventanas import ViewAgregarEmpleado, ViewGestionarEmpleado, ViewActualizarBonificacion,ViewActualizarBonificacion
+from ventanas import ViewAgregarEmpleado, ViewGestionarEmpleado,ViewActualizarBonificacion
+from ttkthemes import ThemedTk
 def abrir_ventana(ventana):
     ventana()
 
@@ -14,6 +15,8 @@ frame.configure(bg='#A1b0cb')
 img_crear = tk.PhotoImage(file="../Recursos/add.png")
 img_gestionar = tk.PhotoImage(file="../Recursos/gestionarE.png")
 img_gestionarB = tk.PhotoImage(file="../Recursos/bonificacion.png")
+
+
 
 btn_AgregarEmpleado = tk.Button(frame, image=img_crear, command=lambda: abrir_ventana(ViewAgregarEmpleado.abrir_ventana1))
 btn_AgregarEmpleado.image = img_crear
