@@ -56,9 +56,11 @@ def BuscarEmpleado(ventanaGE):
 
 def Seleccion1(ventanaGE):
     selected_item = ventanaGE.tablaB.selection()
+    global ide
     if selected_item:
         selected_row = ventanaGE.tablaB.item(selected_item)
         ventanaGE.id = selected_row['text']  # ID en la columna 0
+        ide=ventanaGE.id
         ventanaGE.nombre = selected_row['values'][0]  # Nombre en la columna 1
     conexion = Conexion()
     cursor = conexion.cursor()
@@ -92,8 +94,7 @@ def VerDetalle():
         selected_row = tablaBOL.item(selected_item)
         id = selected_row['text']  # ID en la columna 0
 
-    generador_pdf = GeneradorBoletaPago(id_boleta=id)
-
+    GeneradorBoletaPago(id_boleta=id,id_empleado=ide)
 
 
 

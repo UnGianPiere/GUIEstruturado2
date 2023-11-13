@@ -5,11 +5,11 @@ from src.Clases.ClaseBoletaPago import SQLBoletaPago
 from fpdf import FPDF
 
 class GeneradorBoletaPago(FPDF):
-    def __init__(self, id_boleta):
+    def __init__(self, id_boleta,id_empleado):
         super().__init__()
         self.id_boleta = id_boleta
+        self.id_empleado=id_empleado
         self.generar_boleta()
-
     def header(self):
         self.set_font('Arial', 'B', 12)
         self.cell(0, 10, 'Boleta de Pago', 0, 1, 'C')
@@ -21,7 +21,7 @@ class GeneradorBoletaPago(FPDF):
 
     def generar_boleta(self):
         # Obtener datos del empleado y boleta
-        empleado = SQLEmpleado(id=1)
+        empleado = SQLEmpleado(id=self.id_empleado)
         datos_empleado = empleado.LeerEmpleado()
         nombre = datos_empleado[0][1]
         cargo = datos_empleado[0][3]
