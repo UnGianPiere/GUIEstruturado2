@@ -62,7 +62,7 @@ class GeneradorBoletaPago(FPDF):
         self.set_x(x_position)
 
         # Guardar el PDF en un archivo
-        nombre_archivo = f'Data/BoletasDePago/boleta_pago_{self.id_boleta}.pdf'
+        nombre_archivo = f'src/Data/BoletasDePago/boleta_pago_{self.id_boleta}.pdf'
         self.output(nombre_archivo)
         # Abrir el archivo PDF
         subprocess.run(["start", "", nombre_archivo], shell=True, check=True)
